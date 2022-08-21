@@ -1,0 +1,10 @@
+@font-face {
+    font-family: pixelated;
+    src: url(orange\ kid.ttf);
+    text-size: 2em;
+  }
+
+  body {
+    font-family: pixelated;
+    margin: 0;
+  }
