@@ -1,28 +1,104 @@
 <html>
-  <head>
-    <title>Home</title>
-		<link rel="stylesheet" href="styles.css">
+    <head>
+        <title>Home</title>
+		<link rel="stylesheet" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="scripts.js"></script>
-  </head>
-  
-  <body>
-    <table class="center">
-      <tr>
-        <th class="column">Entertainment</th>
-        <th class="column">Utility</th>
-        <th class="column">Reference</th>
-      </tr>
-      <tr>
-        <td><a href="https://www.youtube.com/">Youtube</a></td>
-        <td><a href="https://mail.google.com/mail/u/0/#inbox">Mail</a></td>
-        <td><a href="https://processing.org/reference/">Processing</a></td>
-      </tr>
-      <tr>
-        <td><a href="https://www.pinterest.com/">Pinterest</a></td>
-        <td><a href="https://drive.google.com/drive/u/0/my-drive">Drive</a></td>
-        <td><a href="#"></a></td>
-      </tr>
-    </table>
-  </body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="script.js"></script>
+    </head>
+
+    <body>
+		<div class="outset">
+			<div class="tab">
+				<div class="tablinks button active inset" onclick="tabClick(event, 'view')" id="defaultOpen"><strong>View</strong></div>
+				<div class="tablinks button active inset" onclick="tabClick(event, 'manage')"><strong>Manage</strong></div>
+			</div>
+		</div>
+		
+		<div id="view" class="tabcontent outset">
+		</div>
+		
+		<div id="manage" class="tabcontent outset">
+			<div class="categoryManage">
+				<div class="inset title">New Bookmark</div>
+				<form id="bookmark">
+					<table>
+						<tbody>
+						<tr>
+							<td><label for="url_name">Name:</label></td>
+							<td><div class="inset"><input type="text" class="inset" id="url_name" name="url_name" autocomplete="off"></div></td>
+						</tr>
+						<tr>
+							<td><label for="url">URL:</label></td>
+							<td><div class="inset"><input type="text" id="url" name="url" autocomplete="off"></div></td>
+						</tr>
+						<tr>
+							<td><label for="tabSelect">Tab: </label></td>
+							<td><div class="inset"><select id="tabSelect"></select></div></td>
+						</tr>
+						<tr>
+							<td colspan="2"><div class="outset"><input id="saveBkmrk" type="submit" value="Save"></div></td>
+						</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="categoryManage">
+				<div class="inset title">New Tab</div>
+				<form id="ntab">
+					<table>
+						<tbody>
+							<tr>
+								<td><label for="ntab_name">Name:</label></td>
+								<td><div class="inset"><input type="text" id="ntab_name" name="ntab_name" autocomplete="off"></div></td>
+							</tr>
+							<tr>
+								<td><label for="ntabSelect">Parent: </label></td>
+								<td><div class="inset"><select id="ntabSelect"></select></div></td>
+							</tr>
+							<tr>
+								<td colspan="2"><div class="outset"><input id="savetab" type="submit" value="Save"></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="categoryManage">
+				<div class="inset title">Delete Link</div>
+				<form id="dltab">
+					<table>
+						<tbody>
+							<tr>
+								<td><label for="dltabSelect">Tab: </label></td>
+								<td><div class="inset"><select id="dltabSelect"></select></div></td>
+							</tr>
+							<tr>
+								<td><label for="dlinkSelect">Link: </label></td>
+								<td><div class="inset"><select id="dlinkSelect"></select></div></td>
+							</tr>
+							<tr>
+								<td colspan="2"><div class="outset"><input id="deletelink" type="submit" value="Delete"></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="categoryManage">
+				<div class="inset title">Delete Tab</div>
+				<form id="dtab">
+					<table>
+						<tbody>
+							<tr>
+								<td><label for="dtabSelect">Tab: </label></td>
+								<td><div class="inset"><select id="dtabSelect"></select></div></td>
+							</tr>
+							<tr>
+								<td colspan="2"><div class="outset"><input id="deletetab" type="submit" value="Delete"></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+    </body>
 </html>
