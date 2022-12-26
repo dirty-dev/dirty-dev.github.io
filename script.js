@@ -1,5 +1,3 @@
-//localStorage.setItem("JSON",'{"tabs":[{"name":"Entertainment","parent":null,"links":[{"key":"Youtube","url":"https://www.youtube.com/feed/subscriptions"},{"key":"Soundcloud","url":"https://soundcloud.com/you/likes"},{"key":"Pinterest","url":"https://www.pinterest.com/"}]},{"name":"Utilities","parent":null,"links":[{"key":"Gmail","url":"https://mail.google.com/mail/u/0/#inbox"},{"key":"Google Drive","url":"https://drive.google.com/drive/u/0/my-drive"}]},{"name":"Reference","parent":null,"links":[{"key":"Processing","url":"https://processing.org/reference/"}]},{"name":"Games","parent":null,"links":[]},{"name":"2D","parent":"Reference","links":[{"key":"Blueprints","url":"https://www.the-blueprints.com/"},{"key":"Sketchup Textures","url":"https://www.sketchuptextureclub.com/textures"}]},{"name":"AI Images","parent":"2D","links":[{"key":"Wombo","url":"https://app.wombo.art/"},{"key":"Mage","url":"https://www.mage.space/"}]},{"name":"EDF","parent":"Games","links":[{"key":"EDF Guns","url":"http://weapon.edf.jpn.com/4-1/?p=r"},{"key":"EDF Levels","url":"https://steamcommunity.com/sharedfiles/filedetails/?id=1546539186"}]}]}');
-//'{"tabs":[{"name":"Games","tabs":[{"name":"EDF","tabs":[],"links":[{"key":"EDF Guns","url":"http://weapon.edf.jpn.com/4-1/?p=r"},{"key":"EDF Levels","url":"https://steamcommunity.com/sharedfiles/filedetails/?id=1546539186"}]}],"links":[]},{"name":"Pictures","tabs":[],"links":[{"key":"AI Images","url":"https://app.wombo.art/"}]}]}'
 var space = '&nbsp';
 var json = JSON.parse(localStorage.getItem("JSON"));
 var tabWidth;
@@ -112,6 +110,10 @@ function removeStorageItem(tabName, index){
 }
 
 function initJSON(){
+	if(json == null){
+		localStorage.setItem("JSON",'{"tabs":[{"name":"Entertainment","parent":null,"links":[{"key":"Youtube","url":"https://www.youtube.com/feed/subscriptions"},{"key":"Soundcloud","url":"https://soundcloud.com/you/likes"},{"key":"Pinterest","url":"https://www.pinterest.com/"},{"key":"Craigslist","url":"http://detroit.craigslist.org/"}]},{"name":"Utilities","parent":null,"links":[{"key":"Gmail","url":"https://mail.google.com/mail/u/0/#inbox"},{"key":"Google Drive","url":"https://drive.google.com/drive/u/0/my-drive"}]},{"name":"Reference","parent":null,"links":[{"key":"Processing","url":"https://processing.org/reference/"}]},{"name":"Games","parent":null,"links":[{"key":"Clickers","url":"https://www.reddit.com/r/incremental_games/search?q=flair%3A%27HTML%27&restrict_sr=on&sort=new&t=all&utm_source=reddit&utm_medium=usertext&utm_name=incremental_games&utm_content=t5_2yia0#html"},{"key":"TFT Comps","url":"https://www.metatft.com/hyper-roll-comps"}]},{"name":"2D","parent":"Reference","links":[{"key":"Blueprints","url":"https://www.the-blueprints.com/"},{"key":"Sketchup Textures","url":"https://www.sketchuptextureclub.com/textures"},{"key":"Texture Haven","url":"https://texturehaven.com/"}]},{"name":"AI Images","parent":"2D","links":[{"key":"Wombo","url":"https://app.wombo.art/"},{"key":"Mage","url":"https://www.mage.space/"}]},{"name":"EDF","parent":"Games","links":[{"key":"EDF Guns","url":"http://weapon.edf.jpn.com/4-1/?p=r"},{"key":"EDF Levels","url":"https://steamcommunity.com/sharedfiles/filedetails/?id=1546539186"}]}]}');
+		json = JSON.parse(localStorage.getItem("JSON"));
+	}
 	var ptabs = 0;
 	for(var i=0;i<json.tabs.length;i++){
 		if(json.tabs[i].parent==null)ptabs++;
